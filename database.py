@@ -29,11 +29,21 @@ def add_stock(ticker, shares, price):
     conn.close()
     print(f"Added {ticker} to your database!")
 
+def delete_stock(stock_id):
+    conn = sqlite3.connect('portfolio.db')
+    cursor = conn.cursor()
+    
+    # We use the ID because it's unique to that specific row
+    cursor.execute('DELETE FROM stocks WHERE id = ?', (stock_id,))
+    
+    conn.commit()
+    conn.close()
+
 def get_all_stocks():
     conn = get_connection()
     cursor = conn.cursor()
     
-    cursor.execute("SELECT ticker, shares, purchase_price FROM stocks")
+    cursor.execute('SELECT id, ticker, shares, purchase_price FROM stocks')
     rows = cursor.fetchall()
     
     conn.close()
