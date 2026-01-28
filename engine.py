@@ -1,4 +1,5 @@
 import yfinance as yf
+from database import get_all_stocks
 
 def get_portfolio_performance(holdings):
     
@@ -18,7 +19,7 @@ def get_portfolio_performance(holdings):
                 current_value = shares * current_price
                 total_portfolio_value += current_value
                 
-                # Gain/Loss Percentage formula: ((Current - Buy) / Buy) * 100
+                # Gain/Loss Percentage
                 percent_change = ((current_price - buy_price) / buy_price) * 100
                 
                 print(f"{ticker_symbol:<10} | ${current_price:<9.2f} | {percent_change:>10.2f}% | ${current_value:>10.2f}")
@@ -30,14 +31,3 @@ def get_portfolio_performance(holdings):
 
     print("-" * 50)
     print(f"Total Portfolio Value: ${total_portfolio_value:,.2f}")
-
-if __name__ == "__main__":
-    # Mock data representing your current holdings
-    # Format: "TICKER": (Shares, Avg Buy Price)
-    my_test_portfolio = {
-        "AAPL": (5, 175.50),
-        "GOOGL": (2, 140.00),
-        "TSLA": (10, 210.00)
-    }
-    
-    get_portfolio_performance(my_test_portfolio)
