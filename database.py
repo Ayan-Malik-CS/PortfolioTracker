@@ -7,7 +7,14 @@ def init_db():
     conn = get_connection()
     cursor = conn.cursor()
     
-    cursor.execute()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS stocks (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            ticker TEXT NOT NULL,
+            shares REAL NOT NULL,
+            purchase_price REAL NOT NULL
+        )
+    ''')
     conn.commit()
     conn.close()
 
