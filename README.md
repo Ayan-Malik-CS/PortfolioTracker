@@ -16,7 +16,7 @@ A real-time web application that allows users to manage a stock portfolio. This 
 * **Data Source:** Yahoo Finance API (`yfinance`)
 * **Frontend:** HTML5, Jinja2, Bootstrap 5
 
-## 📐 System Architecture
+## System Architecture
 The project follows a **Separation of Concerns** design pattern:
 1.  `database.py`: Handles all SQL transactions and schema initialization.
 2.  `engine.py`: Contains the logic for mathematical calculations and API calls.
@@ -25,10 +25,10 @@ The project follows a **Separation of Concerns** design pattern:
 
 
 
-## 🛡️ Security Implementation
+## Security Implementation
 One key focus of this project was protecting the database. I avoided using Python f-strings for SQL queries, instead opting for **? placeholders** (parameterized queries). This ensures that user input is treated as data, not executable code, effectively preventing **SQL Injection**.
 
-## ⚙️ How to Run
+## How to Run
 1.  **Clone the repo:**
     ```bash
     git clone [https://github.com/YOUR_USERNAME/PortfolioTracker.git](https://github.com/YOUR_USERNAME/PortfolioTracker.git)
